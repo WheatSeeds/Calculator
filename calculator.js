@@ -1,31 +1,54 @@
-const story = document.querySelector("#story");
+const numButton = document.querySelectorAll(".numButton")
+const signButton= document.querySelectorAll(".signButton");
+const equalButton = document.querySelector(".equalButton")
+
 const output = document.querySelector("#output");
+let a = "";
+let b = ""
+let sign="";
 
-const addButton = document.querySelector("#addButton");
-const subtractButton = document.querySelector("#subtractButton");
-const divideButton = document.querySelector("#divideButton");
-const multiplyButton = document.querySelector("#multiplyButton");
 
-addButton.onclick = () => storage.sign = "+";
-subtractButton.onclick = () => storage.sign = "-";
-divideButton.onclick = () => storage.sign = "/";
-multiplyButton.onclick = () => storage.sign = "*";
 
-const storage = {
-    first:2,
-    sign:"+",
-    second:3,
-}
 
-function add(storage){
-    return Number(storage.first) + Number(storage.second);
+equalButton.onclick = () =>{
+    switch(sign){
+        case "+":
+            output.innerHTML = add();
+            break;
+        case "-":
+            output.innerHTML = subtract();
+            break;
+        case "/":
+            output.innerHTML = divide();
+            break;
+        case "*":
+            output.innerHTML = multiply();
+            break;
+
+    }
 }
-function subtract(storage){
-    return Number(storage.first) - Number(storage.second);
+signButton.forEach(btn =>{
+    btn.onclick = () => {
+        sign = btn.textContent;
+    }
+});
+
+numButton.forEach((btn) => {
+    btn.onclick = () =>
+        (sign === "")?
+            a += btn.textContent:
+            b += btn.textContent;
+});
+
+function add(){
+    return Number(a) + Number(b);
 }
-function divide(storage){
-    return Number(storage.first) / Number(storage.second);
+function subtract(){
+    return Number(a) - Number(b);
 }
-function multiply(storage){
-    return Number(storage.first) * Number(storage.second);
+function divide(){
+    return Number(a) / Number(b);
+}
+function multiply(){
+    return Number(a) * Number(b);
 }
