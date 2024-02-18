@@ -3,23 +3,51 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Archivo Black",sans-serif;
+}
+#calculator{
+
+}
+
+#output{
+    font-size: 7vh;
+}
+#story{
+    font-size: 4vh;
 }
 
 
 .calcMenu{
-    width: 200px;;
+    width: 60vh;;
     display: flex;
     flex-wrap:wrap;
-}
-.calcMenu button{
-    width: 50px;
-    height: 50px;
+
 }
 #delete, #clear{
-    width: 100px;
+    width: 30vh;
 }
+.calcMenu button{
+    width: 15vh;
+    height: 15vh;
+    background-color: #dedcff;
+    transition: 0.6s;
+    border: 1px solid #adadad;
+    font-family: "Archivo Black",sans-serif;
+    font-size: 4vh;
+}
+.calcMenu button:hover{
+    background-color: #433BFF;
+    color: white;
+    border: 1px solid #3a33d0;
+}
+
 #screen{
-    width: 200px;
-    height: 75px;
-    border: 1px solid black;
+    width: 60vh;
+    height: 20vh;
+    background-color: #94988e;
+    font-family: 'Digital7', sans-serif;
+}
+@font-face {
+    font-family: 'Digital7';
+    src: url('font/Digital7.ttf') format('truetype');
 }
