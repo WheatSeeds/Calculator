@@ -1,5 +1,5 @@
 const numButton = document.querySelectorAll(".numButton")
-const signButton= document.querySelectorAll(".signButton");
+const signButton= document.querySelectorAll(".operationButton");
 const equalButton = document.querySelector(".equalButton")
 const deleteButton = document.querySelector("#delete");
 const clearButton = document.querySelector("#clear");
@@ -11,57 +11,43 @@ let a = "";
 let b = "";
 let sign="";
 
-function updateScreen(){
-    (sign === "")
-        ?((a==="")
-             ?(output.innerHTML = 0)
-             :(output.innerHTML = a))
-         :((b==="")
-             ?(output.innerHTML = 0)
-             :(output.innerHTML = b));
-}
-
-
-
 clearButton.onclick = () =>{
     a = "";
     b = "";
     sign="";
-    output.innerHTML = 0;
+    output.innerHTML = "0";
     story.innerHTML = ".";
 }
 
 deleteButton.onclick = () =>{
     if(sign===""){
         a = a.slice(0, -1)
-        updateScreen()
+        output.innerHTML = a;
     }
     else{
         b = b.slice(0, -1)
-        updateScreen()
+        output.innerHTML = b;
     }
 }
 
 equalButton.onclick = () =>{
     switch(sign){
         case "+":
-            story.innerHTML = a + " " + sign + " " + b;
             output.innerHTML = add();
             break;
         case "-":
-            story.innerHTML = a + " " + sign + " " + b;
             output.innerHTML = subtract();
             break;
         case "/":
-            story.innerHTML = a + " " + sign + " " + b;
             output.innerHTML = divide();
             break;
         case "*":
-            story.innerHTML = a + " " + sign + " " + b;
             output.innerHTML = multiply();
             break;
-
     }
+    story.innerHTML = a + " " + sign + " " + b;
+    a = output.innerHTML;
+    b = "";
 }
 
 signButton.forEach(btn =>{
